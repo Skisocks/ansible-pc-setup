@@ -1,0 +1,22 @@
+- name: software | brave-browser | add repository key
+  apt_key:
+    url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+  when: ansible_distribution in ["Debian", "Ubuntu"]
+
+- name: software | brave-browser | add repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
+    filename: brave-browser
+  register: brave_repo
+  when: ansible_distribution in ["Debian", "Ubuntu"]
+
+- name: software | brave-browser | update sources (repo added or changed)
+  apt:
+    update_cache: yes
+  changed_when: False
+  when: brave_repo.changed
+
+- name: software | brave-browser | install package
+  apt:
+    name: brave-browser
+  when: ansible_distribution in ["Debian", "Ubuntu"]
