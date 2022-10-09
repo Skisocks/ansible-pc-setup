@@ -1,15 +1,23 @@
-- hosts: localhost
-  connection: local
+- hosts: all
+  tags: always
   become: true
   pre_tasks:
-    - name: System details
+    - name: pre-run | display system details
       debug: msg="{{ item }}"
       with_items:
         - "{{ ansible_distribution }}"
         - "{{ ansible_distribution_version }}"
         - "{{ ansible_distribution_major_version }}"
+
     - name: pre-run | update package cache (debian, etc)
       tags: always
       apt: update_cache=yes
       changed_when: False
       when: ansible_distribution in ["Debian", "Ubuntu", "KDE Neon"]
+
+# run roles
+- hosts: all
+  tags: base
+  become: true
+  roles:
+    - base
