@@ -6,8 +6,6 @@
 - name: software | brave-browser | add repository
   apt_repository:
     repo: "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
-    filename: brave-browser
-  register: brave_repo
   when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
 
 - name: software | brave-browser | update sources (repo added or changed)

@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e9b6ae8c-a5c7-47be-93f3-3afcd80b9e1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/local.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/base/tasks/software/brave.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/base/tasks/software/brave.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
