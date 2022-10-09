@@ -1,17 +1,17 @@
-- name: Software | Slack | Check exists
+- name: Software | slack-desktop | Check exists
   command: dpkg-query -W slack-desktop
   register: check_slack_deb
   failed_when: check_slack_deb.rc > 1
   changed_when: check_slack_deb.rc == 1
   when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
 
-- name: Software | Slack | Download
+- name: Software | slack-desktop | Download
   get_url:
     url: "{{ slack_deb_url }}"
     dest: "{{ slack_dl_dir }}"
     mode: 0644
-  when: check_slack_deb.rc == 1
+  when: (ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]) or (check_slack_deb.rc == 1)
 
-- name: Software | Slack | Install
+- name: Software | slack-desktop | Install
   apt: deb="{{ slack_dl_dir }}"
-  when: check_slack_deb.rc == 1
+  when: (ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]) or (check_slack_deb.rc == 1)

@@ -1,5 +1,0 @@
-- name: Install jetbrains tool box
-  apt:
-    name: zsh
-    state: latest
-  become: yes

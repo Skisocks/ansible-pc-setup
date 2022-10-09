@@ -1,4 +1,4 @@
-- name: system setup | utilities | install utility packages
+- name: System Setup | Utilities | Install Utility Packages
   tags: packages,system,settings
   package:
     state: latest

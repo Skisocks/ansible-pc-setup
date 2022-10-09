@@ -1,0 +1,6 @@
+- name: Software | thunderbird | Install Package
+  package:
+    state: latest
+    name:
+      - thunderbird
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
