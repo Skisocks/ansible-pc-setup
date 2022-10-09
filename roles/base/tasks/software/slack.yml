@@ -1,0 +1,16 @@
+- name: Software | Slack | Check exists
+  command: dpkg-query -W slack-desktop
+  register: check_slack
+  failed_when: false
+  changed_when: false
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
+
+- name: Software | Slack | Download
+  command: "wget -O /tmp/slack-desktop-{{ slack_version }}-amd64.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-{{ slack_version }}-amd64.deb"
+  args:
+    creates: "/tmp/slack-desktop-{{ slack_version }}-amd64.deb"
+  when: check_slack.rc == 1, ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
+
+- name: Software | Slack | Install
+  command: gdebi --non-interactive /tmp/slack-desktop-{{slack_version}}-amd64.deb
+  when: check_slack.rc == 1, ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
