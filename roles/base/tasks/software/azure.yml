@@ -2,10 +2,11 @@
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
     state: present
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
 
 - name: Software | azure-cli | Add Repository
   apt_repository:
-    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ stable main"
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_lsb['codename'] }} main"
     state: present
     filename: azure-cli
     update_cache: yes
