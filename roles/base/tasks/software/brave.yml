@@ -1,13 +1,13 @@
 - name: Software | brave-browser | Add Repository Key
   get_url:
-    url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    dest: /usr/share/keyrings/brave-browser-archive-keyring.gpg
+    url: "{{ brave_base_url }}/{{ brave_key_name }}"
+    dest: "{{ brave_key_dest }}"
     mode: 0644
   when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
 
 - name: Software | brave-browser | Add Repository
   apt_repository:
-    repo: "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com stable main"
+    repo: "deb [signed-by=/usr/share/keyrings/{{ brave_key_name }} arch=amd64] {{ brave_base_url }} stable main"
     state: present
     filename: brave-browser
   when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]

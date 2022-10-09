@@ -1,3 +1,9 @@
+mode: 0644
+
 slack_version: 4.28.182
 slack_deb_url: https://downloads.slack-edge.com/releases/linux/{{ slack_version }}/prod/x64/slack-desktop-{{ slack_version }}-amd64.deb
 slack_dl_dir: /tmp/slack-desktop-{{ slack_version }}-amd64.deb
+
+brave_base_url: https://brave-browser-apt-release.s3.brave.com
+brave_key_name: brave-browser-archive-keyring.gpg
+brave_key_dest: "/usr/share/keyrings/{{ brave_key_name }}"
