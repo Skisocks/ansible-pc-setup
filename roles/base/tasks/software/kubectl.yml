@@ -1,0 +1,23 @@
+- name: Software | kubectl | Add Key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+  register: add_repository_key
+  ignore_errors: false
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
+
+- name: Software | kubectl | Add Repository
+  apt_repository:
+    repo: "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+    state: present
+    filename: kubectl
+    update_cache: yes
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
+
+- name: Software | kubectl | Install Package
+  apt:
+    name: kubectl
+    state: present
+    force_apt_get: yes
+    update_cache: yes
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
