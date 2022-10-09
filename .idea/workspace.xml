@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9b6ae8c-a5c7-47be-93f3-3afcd80b9e1e" name="Changes" comment="" />
+    <list default="true" id="e9b6ae8c-a5c7-47be-93f3-3afcd80b9e1e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/roles/base/tasks/software/slack.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/base/tasks/software/slack.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,8 +46,8 @@
       <recent name="$PROJECT_DIR$/zsh" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/roles/base/tasks/software" />
       <recent name="$PROJECT_DIR$/roles/base" />
+      <recent name="$PROJECT_DIR$/roles/base/tasks/software" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
