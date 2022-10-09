@@ -7,3 +7,6 @@ slack_dl_dir: /tmp/slack-desktop-{{ slack_version }}-amd64.deb
 brave_base_url: https://brave-browser-apt-release.s3.brave.com
 brave_key_name: brave-browser-archive-keyring.gpg
 brave_key_dest: "/usr/share/keyrings/{{ brave_key_name }}"
+
+azure_key_server: packages.microsoft.com
+azure_key_id: 52E16F86FEE04B979B07E28DB02C46DF417A0893

@@ -1,0 +1,20 @@
+- name: Software | azure-cli | Add Repository Key
+  apt_key:
+    keyserver: "{{ azure_key_server }}"
+    id: "{{ azure_key_id }}"
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
+
+- name: Software | azure-cli | Add Repository
+  apt_repository:
+    repo: "deb [arch=amd6] https://packages.microsoft.com/repos/azure-cli/ stable main"
+    state: present
+    filename: azure-cli
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
+
+- name: Software | azure-cli | Install Package
+  apt:
+    name: azure-cli
+    state: present
+    force_apt_get: yes
+    update_cache: yes
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]

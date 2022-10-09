@@ -8,3 +8,6 @@
       - rsync
       - wget
       - gdebi
+      - ca-certificates
+      - lsb-release
+      - gnupg
