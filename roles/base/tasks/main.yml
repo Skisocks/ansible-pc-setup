@@ -7,3 +7,4 @@
     - import_tasks: software/kubectl.yml
     - import_tasks: software/lens.yml
     - import_tasks: software/jx.yml
+    - import_tasks: software/helm.yml

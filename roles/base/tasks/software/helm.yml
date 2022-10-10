@@ -1,0 +1,21 @@
+- name: Software | helm | Add Repository Key
+  get_url:
+    url: "{{ helm_key_server }}"
+    dest: "{{ helm_key_dest }}"
+    mode: 0644
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
+
+- name: Software | helm | Add Repository
+  apt_repository:
+    repo: "deb [signed-by={{ helm_key_dest }} arch=amd64] https://baltocdn.com/helm/stable/debian/ all main"
+    state: present
+    filename: helm
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
+
+- name: Software | helm | Install Package
+  apt:
+    name: helm
+    state: present
+    force_apt_get: yes
+    update_cache: yes
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]

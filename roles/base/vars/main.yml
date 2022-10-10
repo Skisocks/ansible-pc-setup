@@ -1,12 +1,14 @@
 mode: 0644
 
+base_keys_dir: "/usr/share/keyrings/"
+
 slack_version: 4.28.182
 slack_deb_url: https://downloads.slack-edge.com/releases/linux/{{ slack_version }}/prod/x64/slack-desktop-{{ slack_version }}-amd64.deb
 slack_dl_dir: /tmp/slack-desktop-{{ slack_version }}-amd64.deb
 
 brave_base_url: https://brave-browser-apt-release.s3.brave.com
 brave_key_name: brave-browser-archive-keyring.gpg
-brave_key_dest: "/usr/share/keyrings/{{ brave_key_name }}"
+brave_key_dest: "{{ base_keys_dir }}{{ brave_key_name }}"
 
 azure_key_server: packages.microsoft.com
 azure_key_id: 52E16F86FEE04B979B07E28DB02C46DF417A0893
@@ -16,3 +18,6 @@ lens_deb_url: https://api.k8slens.dev/binaries/Lens-{{ lens_version }}-latest.am
 
 jx_version: 3.7.8
 jx_url: https://github.com/jenkins-x/jx/releases/download/v{{ jx_version }}/jx-linux-amd64.tar.gz
+
+helm_key_server: https://baltocdn.com/helm/signing.asc
+helm_key_dest: "{{ base_keys_dir }}/helm.gpg"
