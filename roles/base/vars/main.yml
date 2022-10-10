@@ -15,4 +15,4 @@ lens_version: 2022.10.70653
 lens_deb_url: https://api.k8slens.dev/binaries/Lens-{{ lens_version }}-latest.amd64.deb
 
 jx_version: 3.7.8
-jx_url: https://github.com/jenkins-x/jx/releases/download/{{ jx_version }}/jx-linux-amd64.tar.gz
+jx_url: https://github.com/jenkins-x/jx/releases/download/v{{ jx_version }}/jx-linux-amd64.tar.gz
