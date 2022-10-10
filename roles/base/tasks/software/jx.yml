@@ -1,0 +1,6 @@
+- name: Software | jenkins x cli | Install
+  unarchive:
+    src: "{{ jx_url }}"
+    dest: "/usr/local/bin"
+    copy: no
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]

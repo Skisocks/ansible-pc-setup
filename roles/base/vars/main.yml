@@ -13,3 +13,6 @@ azure_key_id: 52E16F86FEE04B979B07E28DB02C46DF417A0893
 
 lens_version: 2022.10.70653
 lens_deb_url: https://api.k8slens.dev/binaries/Lens-{{ lens_version }}-latest.amd64.deb
+
+jx_version: 3.7.8
+jx_url: https://github.com/jenkins-x/jx/releases/download/{{ jx_version }}/jx-linux-amd64.tar.gz
