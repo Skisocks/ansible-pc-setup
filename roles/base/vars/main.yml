@@ -11,5 +11,5 @@ brave_key_dest: "/usr/share/keyrings/{{ brave_key_name }}"
 azure_key_server: packages.microsoft.com
 azure_key_id: 52E16F86FEE04B979B07E28DB02C46DF417A0893
 
-lens_version: 5.4.6
-lens_deb_url: https://api.k8slens.dev/binaries/Lens-{{ lens_version }}-latest.20220421.1.amd64.deb
+lens_version: 2022.10.70653
+lens_deb_url: https://api.k8slens.dev/binaries/Lens-{{ lens_version }}-latest.amd64.deb
