@@ -17,5 +17,4 @@
     name: helm
     state: present
     force_apt_get: yes
-    update_cache: yes
   when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
