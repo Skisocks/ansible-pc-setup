@@ -1,8 +1,8 @@
 - name: Software | slack-desktop | Check exists
   command: dpkg-query -W slack-desktop
   register: check_slack_deb
-  failed_when: check_slack_deb.rc > 1
-  changed_when: check_slack_deb.rc == 1
+  failed_when: check_slack_deb.rc > 0
+  changed_when: check_slack_deb.rc == 0
   when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
 
 - name: Software | slack-desktop | Download
