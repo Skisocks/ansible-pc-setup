@@ -5,3 +5,4 @@
     - import_tasks: software/azure.yml
     - import_tasks: software/teams.yml
     - import_tasks: software/kubectl.yml
+    - import_tasks: software/lens.yml

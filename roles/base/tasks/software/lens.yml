@@ -1,0 +1,12 @@
+- name: Software | lens | Check exists
+  command: dpkg-query -W lens
+  register: check_lens_deb
+  failed_when: check_lens_deb.rc > 1
+  changed_when: check_lens_deb.rc == 1
+  when: ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]
+
+- name: Software | lens | Download
+  apt:
+    deb: "{{ lens_deb_url }}"
+    state: present
+  when: (ansible_distribution in ["Debian", "Ubuntu", "KDE neon"]) or (check_lens_deb.rc == 1)
